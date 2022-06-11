@@ -1,22 +1,11 @@
 #!/usr/bin/python3
 
-#**
-# * Copyright (c) 2020 Weitian Leung
-# *
-# * This file is part of pywpsrpc.
-# *
-# * This file is distributed under the MIT License.
-# * See the LICENSE file for details.
-# *
-#*
-
 import os
 import sys
 import argparse
 
 from pywpsrpc.rpcwpsapi import (createWpsRpcInstance, wpsapi)
 from pywpsrpc.common import (S_OK, QtApp)
-
 
 formats = {
     "doc": wpsapi.wdFormatDocument,
@@ -82,7 +71,8 @@ def convert_file(file, docs, format):
     os.makedirs(out_dir, exist_ok=True)
 
     # you have to handle if the new_file already exists
-    new_file = out_dir + "/" + os.path.splitext(os.path.basename(file))[0] + "." + format
+    new_file = out_dir + "/" + \
+        os.path.splitext(os.path.basename(file))[0] + "." + format
     ret = doc.SaveAs2(new_file, FileFormat=formats[format])
 
     # always close the doc
