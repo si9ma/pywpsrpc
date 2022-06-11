@@ -47,7 +47,7 @@ private:
 };
 %End
 
-%Include typedef.sip
+%Include type.sip
 %Include objbase.sip
 %Include objidl.sip
 %Include oaidl.sip

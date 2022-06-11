@@ -46,6 +46,9 @@ def convert_to(paths, format, abort_on_fails=False):
     if hr != S_OK:
         raise ConvertException("Can't create the rpc instance", hr)
 
+    a,b = rpc.getProcessPid()
+    print("Process PID: {} {}".format(a,b))
+
     hr, app = rpc.getWpsApplication()
     if hr != S_OK:
         raise ConvertException("Can't get the application", hr)
